@@ -1,10 +1,3 @@
-Entwickler:
-Max Tremmel
-811970
-
-- Prüfungsleistung Master Wirtschaftsinformatik Sommersemester 2024 -
-
-Dieser Chatbot wurde im Modul: Knowledge Representation & Natural Language Processing entwickelt.
 
 ---------------------------------------------
 
