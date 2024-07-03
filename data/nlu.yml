@@ -1,0 +1,207 @@
+version: "3.1"
+
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - whats up
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - farewell
+
+- intent: make_reservation
+  examples: |
+    - I want to make a reservation
+    - I would like to book a room
+    - I need a hotel room
+    - Can I make a reservation?
+    - I'd like to reserve a room
+    - Could I book a room, please?
+    - Can you help me with a room booking?
+    - Can I book a stay at your hotel?
+    - I need a stay in your hotel
+    - I want to book a room for my stay
+    - Can you please book a room for me?
+    - Could you please help me reserve a room?
+
+- intent: provide_guests
+  examples: |
+    - We are [2](guests) people
+    - There will be [3](guests) guests
+    - [4](guests) adults
+    - [3](guests) guests
+    - [2](guests)
+    - Our group consists of [3](guests) guests
+    - There will be [2](guests) of us
+    - We are a group of [5](guests)
+    - We are [3](guests)
+    - We will be [4](guests) guests
+    - Our reservation is for [5](guests) guys
+    - We have a party of [2](guests) people
+    - It is only for [1](guests) person
+
+- intent: provide_names
+  examples: |
+    - The names are [Anna, John and Markus](names)
+    - It's [Peter and Laura](names)
+    - [Sara and Tom](names)
+    - The names on the reservation are [Emily and James](names)
+    - The booking is for [Michael, Sophia and Jan](names)
+    - The guests are [Olivia and David](names)
+    - The reservation includes [Emma, Daniel, Sabrina, Jan and Toni](names)
+    - It’s a booking for [Liam and Isabella](names)
+    - The room is for [Ava and Ethan](names)
+    - The names listed are [Charlotte and Benjamin](names)
+    - It's [Lucas and Amelia](names) staying
+    - The guests’ names are [Mia, Alexander, Toni and Jan](names)
+    - We have [Harper and Elijah](names) as guests
+
+- intent: provide_dates
+  examples: |
+    - Check-in on [June 20 and check-out on June 25](dates)
+    - From [July 1 to July 10](dates)
+    - Arriving on [August 15 and leaving on August 20](dates)
+    - Arriving [August 15 leaving August 20](dates)
+    - We’ll be checking in on [June 20 and departing on June 25](dates)
+    - Staying from [July 1 to July 10](dates)
+    - Our stay will be from [August 15 to August 20](dates)
+    - Arriving on [September 5 and departing on September 10](dates)
+    - Our booking is from [October 12 to October 18](dates)
+    - We want to stay from [August 1 to August 8](dates)
+    - [September 3rd to September 5th](dates)
+
+- intent: provide_email
+  examples: |
+    - My email is [example@gmail.com](email)
+    - You can reach me at [test@example.com](email)
+    - My email address is [info@domain.com](email)
+    - [example@gmx.com](email)
+    - Feel free to contact me at [hello@example.com](email)
+    - You can email me at [contact@domain.com](email)
+    - My email for correspondence is [user@provider.com](email)
+    - Reach out to me via email at [mail@example.net](email)
+
+- intent: provide_requests
+  examples: |
+    - [I would like a room with a sea view](requests)
+    - [We need late check-out](requests)
+    - [I need a crib in the room](requests)
+    - [We will need parking](requests)
+    - [We want an extra bed](requests)
+    - [I would prefer a room with a balcony](requests)
+    - [We need early check-in](requests)
+    - [I need a room with wheelchair access](requests)
+    - [We will require airport shuttle service](requests)
+    - [Breakfast included, please](requests)
+    - [No, thanks](requests)
+    - [No i dont have any special requests.](requests)
+
+- intent: thanks
+  examples: |
+    - thanks
+    - thank you
+    - appreciate it
+    - many thanks
+    - Thank you very much
+    - Thanks, we are looking forward to our stay!
+
+- intent: not_sure
+  examples: |
+    - okay
+    - ah okay
+    - what?
+    - huh?
+    - i dont understand
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: mood_bot
+  examples: |
+    - how are you?
+    - how was your day?
+    - how is your mood?
+    
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are u real?
+    - do I know you?

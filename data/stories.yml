@@ -1,0 +1,80 @@
+version: "3.1"
+
+stories:
+
+- story: hotel reservation happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: make_reservation
+  - action: utter_ask_guests
+  - intent: provide_guests
+  - action: utter_ask_names
+  - intent: provide_names
+  - action: utter_ask_dates
+  - intent: provide_dates
+  - action: utter_ask_email
+  - intent: provide_email
+  - action: utter_ask_requests
+  - intent: provide_requests
+  - action: action_submit_reservation
+  - action: utter_submit
+
+
+- story: greet and make reservation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: make_reservation
+  - action: utter_ask_guests
+
+- story: provide guest details
+  steps:
+  - intent: provide_guests
+  - action: utter_ask_names
+
+- story: provide names
+  steps:
+  - intent: provide_names
+  - action: utter_ask_dates
+
+- story: provide dates
+  steps:
+  - intent: provide_dates
+  - action: utter_ask_email
+
+- story: provide email
+  steps:
+  - intent: provide_email
+  - action: utter_ask_requests
+
+- story: provide requests
+  steps:
+  - intent: provide_requests
+  - action: action_submit_reservation
+  - action: utter_submit
+
+- story: no additional wish
+  steps:
+  - intent: provide_email
+  - action: action_submit_reservation
+  - action: utter_submit
+
+- story: mood_good
+  steps:
+  - intent: mood_bot
+  - action: utter_mood_bot
+  - intent: mood_great
+  - action: utter_happy
+
+- story: mood_bad
+  steps:
+  - intent: mood_bot
+  - action: utter_mood_bot
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- story: not_sure
+  steps:
+  - intent: not_sure
+  - action: utter_not_sure
