@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Reservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .chat-sign-button {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+
+        #chat-widget {
+            max-height: 400px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chat-widget .card-header,
+        #chat-widget .card-footer {
+            flex-shrink: 0;
+        }
+
+        #chat-widget .card-body {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .hero-image {
+            background-image: url('https://img.freepik.com/premium-photo/sunset-view-from-balcony-hotel_846334-374.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .features, .contact {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1>Welcome to Your Dream Stay</h1>
+                <p>Experience luxury and comfort like never before.</p>
+            </div>
+        </div>
+        <br>
+
+        <section>
+            <h2>About Our Hotel</h2>
+            <p>
+                Welcome to our luxurious hotel, where elegance meets comfort. Nestled in the heart of the city, our hotel offers a unique blend of contemporary design and exceptional service. Whether you are here for business or pleasure, our state-of-the-art facilities and attentive staff are here to ensure your stay is unforgettable.
+            </p>
+            <p>
+                Our rooms and suites are designed with your comfort in mind, featuring plush bedding, modern amenities, and stunning city views. Enjoy a range of dining options, from our gourmet restaurant to casual cafes, all offering delicious cuisine prepared with the freshest ingredients.
+            </p>
+        </section>
+        <br>
+
+        <section class="features">
+            <h2>Hotel Features</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 feature-item">
+                    <img src="https://www.wyndhamgardenkassel.com/wyndham/garden-kassel/zimmer/kas21-deluxe-room1.1.low-res.gif" alt="Room Image">
+                    <h3>Comfortable Rooms</h3>
+                    <p>Experience the best in comfort and style in our well-appointed rooms.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <img src="https://www.wellnesshotel-mariaalm.com/templates/yootheme/cache/3a/fruehstueck-brunch-hotel-wellness-mariaalm-3a16005d.jpeg" alt="Restaurant Image">
+                    <h3>Fine Dining</h3>
+                    <p>Indulge in gourmet cuisine at our in-house restaurants.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <img src="https://media.meintophotel.de/uploads/2021/05/Wellnesshotels-im-Allgaeu-Bergkristall-Pool.jpg" alt="Pool Image">
+                    <h3>Swimming Pool</h3>
+                    <p>Relax and unwind in our beautiful outdoor swimming pool.</p>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <!-- Chatbot Booking -->
+        <section>
+            <h2>Easy Booking with Our Reservation Bot &#10140;</h2>
+            <p>Have questions or need assistance with your booking? Our reservation bot is here to help you 24/7.</p>
+        </section>
+        <br>
+
+        <!-- Kontakt -->
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need further information, please do not hesitate to contact us:</p>
+            <br>
+            <p>Email: info@hotel.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Main Street, Citytown, Countryland</p>
+        </section>
+        <br>
+
+        <!-- Button für den Chatbot -->
+        <button id="chat-widget-button" type="button"
+                class="btn btn-primary rounded-circle position-fixed chat-sign-button"
+                style="bottom: 100px; right: 100px;">
+            <i class="fas fa-comments"></i>
+        </button>
+
+        <!-- Chat Widget -->
+        <div id="chat-widget" class="card position-fixed shadow d-none" style="bottom: 100px; right: 20px; width: 300px;">
+
+            <!-- Widget Header -->
+            <div class="card-header bg-primary text-white">
+                Hotel Reservation Bot
+                <button id="chat-widget-close-button" type="button" class="btn-close float-end" aria-label="Close"></button>
+            </div>
+
+            <!-- hier werden Chats angezeigt -->
+            <div class="card-body" id="chat-widget-messages"></div>
+
+            <!-- Widget Footer für den Input des Users -->
+            <div class="card-footer">
+                <input type="text" class="form-control" id="chat-widget-input" placeholder="Type your message...">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Chatfenster öffnen
+            $("#chat-widget-button").on("click", function() {
+                $("#chat-widget").toggleClass("d-none");
+            });
+
+            // Chatfenster schließen
+            $("#chat-widget-close-button").on("click", function() {
+                $("#chat-widget").addClass("d-none");
+            });
+
+            // Input entgegennehmen im Chat
+            $("#chat-widget-input").keypress(function(event) {
+                if(event.which === 13) {
+                    let userMsg = $("#chat-widget-input").val();
+                    $("#chat-widget-input").val("");
+
+                    // zeige user msg im chat an
+                    $("#chat-widget-messages").append("<div><strong>You:</strong> " + userMsg + "</div>");
+                    scrollToBottom();
+
+                    // verknüpfung zu RASA und auf Eingabe antworten
+                    $.ajax({
+                        type: "POST",
+                        url: "/webhook",
+                        contentType: "application/json",
+                        data: JSON.stringify({ message: userMsg }),
+                        success: function(data) {
+                            let botResponse = data.response;
+
+                            $("#chat-widget-messages").append("<div><strong>Bot:</strong> " + botResponse + "</div>");
+
+                            // fokus immer auf die neueste Nachricht
+                            scrollToBottom();
+                        },
+
+                        error: function() {
+                            // handle error if needed
+                        }
+                    });
+                }
+            });
+
+            // fokus immer auf die neueste Nachricht im Chatfenster
+            function scrollToBottom() {
+                var chatMessages = $("#chat-widget-messages");
+                chatMessages.scrollTop(chatMessages.prop("scrollHeight"));
+            }
+        });
+    </script>
+</body>
+</html>
