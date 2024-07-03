@@ -1,0 +1,110 @@
+version: "3.1"
+
+# key components: intents, entities, responses, actions, slots, forms, templates
+# yt: 1:20:00
+
+intents:
+  - greet
+  - goodbye
+  - thanks
+  - make_reservation
+  - provide_guests
+  - provide_names
+  - provide_dates
+  - provide_email
+  - provide_requests
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - not_sure
+  - mood_bot
+
+entities:
+  - email
+  - guests
+  - names
+  - dates
+  - requests
+
+slots:
+  guests:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: guests
+  names:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: names
+  dates:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dates
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+  requests:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: requests
+    influence_conversation: false
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+
+  utter_ask_guests:
+    - text: "How many guests will be staying?"
+
+  utter_ask_names:
+    - text: "What are the names of the guests?"
+
+  utter_ask_dates:
+    - text: "What are the check-in and check-out dates?"
+
+  utter_ask_email:
+    - text: "What is your email address?"
+
+  utter_ask_requests:
+    - text: "Do you have any special requests?"
+
+  utter_submit:
+    - text: "Thank you! Your reservation request has been submitted. We will contact you shortly. Please check your mails!"
+
+  utter_thanks:
+  - text: "You are welcome!"
+
+  utter_cheer_up:
+  - text: "You are great! Don't be sad! Tomorrow will be a new day!"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Goodbye, have a nice day!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_not_sure:
+  - text: "Maybe restart the chat"
+
+  utter_mood_bot:
+  - text: "I am good, how about you?"
+
+actions:
+  - action_submit_reservation
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
